@@ -37,12 +37,12 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
     return priorityColors[priority];
   };
 
-  // CORREÇÃO 1: Aceita string ou number e converte para string
+
   const handleDelete = (id: string | number) => {
     deleteTask(String(id));
   };
 
-  // CORREÇÃO 2: Aceita string ou number e converte para string
+
   const handleUpdate = (id: string | number, status: TaskStatus) => {
     if (status === "todo") {
       updateTask(String(id), { status: "doing" });

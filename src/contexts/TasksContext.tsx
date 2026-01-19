@@ -11,6 +11,7 @@ export interface TasksContextData {
 
 export const TasksContext = createContext({} as TasksContextData);
 
+
 interface TasksContextProviderProps {
   children: ReactNode;
 }
@@ -32,15 +33,18 @@ export const TasksContextProvider: React.FC<TasksContextProviderProps> = ({ chil
     await taskServices.updateTask(id , attributes)
     setTasks((currentState) => { 
       const updatedTasks = [...currentState]
-      const taskIndex = updatedTasks.findIndex(( task ) => task.id === id)
+      const taskIndex = updatedTasks.findIndex((task) => String(task.id) === String(id));
       Object.assign(updatedTasks[taskIndex] , attributes)
       return updatedTasks
     })
   };
 
-  const deleteTask = async (id : string) => {
-    await taskServices.deleteTask(id)
-    setTasks((currentState) => currentState.filter((task) => task.id != id))
+  const deleteTask = async (id: string | number) => {
+    await taskServices.deleteTask(String(id));
+
+    setTasks((currentState) => 
+      currentState.filter((task) => String(task.id) !== String(id))
+    );
   };
 
   useEffect(() => {
