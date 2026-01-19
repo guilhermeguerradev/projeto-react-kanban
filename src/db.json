@@ -1,0 +1,74 @@
+{
+  "tasks": [
+    {
+      "id": "t101",
+      "title": "Configurar pipeline de CI/CD",
+      "description": "Automatizar o processo de build, testes e deploy utilizando GitHub Actions ou Jenkins para garantir entregas contínuas.",
+      "status": "done",
+      "priority": "high"
+    },
+    {
+      "id": "t102",
+      "title": "Corrigir bugs no ambiente de produção",
+      "description": "Investigar logs de erro e resolver falhas críticas reportadas pelos usuários na versão estável do sistema.",
+      "status": "done",
+      "priority": "high"
+    },
+    {
+      "id": "t103",
+      "title": "Implementar login social",
+      "description": "Integrar autenticação via OAuth2 (Google e Facebook) para facilitar o cadastro e login de novos usuários.",
+      "status": "done",
+      "priority": "medium"
+    },
+    {
+      "id": "t104",
+      "title": "Migrar banco de dados",
+      "description": "Planejar e executar a migração de dados para a nova estrutura de schema, garantindo integridade e backup prévio.",
+      "status": "doing",
+      "priority": "high"
+    },
+    {
+      "id": "t105",
+      "title": "Atualizar pacotes npm",
+      "description": "Verificar dependências desatualizadas e corrigir vulnerabilidades de segurança apontadas pelo `npm audit`.",
+      "status": "doing",
+      "priority": "low"
+    },
+    {
+      "id": "t106",
+      "title": "Criar documentação no Swagger",
+      "description": "Mapear todos os endpoints da API RESTful e gerar a documentação interativa para facilitar o consumo pelo front-end.",
+      "status": "doing",
+      "priority": "medium"
+    },
+    {
+      "id": "t107",
+      "title": "Desenvolver novas telas do painel",
+      "description": "Implementar o layout responsivo e a lógica das novas áreas administrativas do dashboard utilizando React.",
+      "status": "todo",
+      "priority": "medium"
+    },
+    {
+      "id": "t108",
+      "title": "Fazer code review dos colegas",
+      "description": "Revisar Pull Requests pendentes, focando em boas práticas, performance e conformidade com o padrão de código.",
+      "status": "todo",
+      "priority": "medium"
+    },
+    {
+      "id": "t109",
+      "title": "Configurar monitoramento no Grafana",
+      "description": "Configurar painéis de visualização de métricas de servidor e aplicação para acompanhamento em tempo real.",
+      "status": "todo",
+      "priority": "low"
+    },
+    {
+      "id": "t110",
+      "title": "Escrever script de automação",
+      "description": "Criar scripts em Python ou Shell para automatizar tarefas repetitivas de manutenção e limpeza de logs.",
+      "status": "todo",
+      "priority": "low"
+    }
+  ]
+}
