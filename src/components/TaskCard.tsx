@@ -1,19 +1,17 @@
 import { Badge, Button, Card, Flex, Heading, Text } from "@radix-ui/themes";
 import type { Task, TaskPriority, TaskStatus } from "../entities/Task";
 import { useTasks } from "../hooks/useTasks";
-import { CreateTaskForm } from "./CreateTaskForm";
 
 interface TaskCardProps {
   task: Task;
 }
 
 export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
-
-  const { deleteTask, updateTask } = useTasks()
+  const { deleteTask, updateTask } = useTasks();
 
   const getActionText = (status: TaskStatus) => {
     const actionsTexts = {
-      todo: "iniciar",
+      todo: "Iniciar",
       doing: "Concluir",
       done: "Arquivar",
     };
@@ -39,17 +37,19 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
     return priorityColors[priority];
   };
 
-  const handleDelete = (id : string) => {
-    deleteTask(id)
-  }
+  // CORREÇÃO 1: Aceita string ou number e converte para string
+  const handleDelete = (id: string | number) => {
+    deleteTask(String(id));
+  };
 
-  const handleUpdate = (id : string, status : TaskStatus) => {
+  // CORREÇÃO 2: Aceita string ou number e converte para string
+  const handleUpdate = (id: string | number, status: TaskStatus) => {
     if (status === "todo") {
-      updateTask(id, { status : "doing" })
-    } else if ( status === "doing") {
-      updateTask(id , { status : "done"})
+      updateTask(String(id), { status: "doing" });
+    } else if (status === "doing") {
+      updateTask(String(id), { status: "done" });
     }
-  }
+  };
 
   return (
     <Card>
@@ -66,13 +66,17 @@ export const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
 
       <Flex gap={"2"}>
         {task.status !== "done" && (
-          <Button color={getActionColor(task.status)} onClick={() => handleUpdate(task.id, task.status)}>
+          <Button
+            color={getActionColor(task.status)}
+            onClick={() => handleUpdate(task.id, task.status)}
+          >
             {getActionText(task.status)}
           </Button>
         )}
 
-        <Button color="red" onClick={() => handleDelete(task.id)}>Excluir</Button>
-
+        <Button color="red" onClick={() => handleDelete(task.id)}>
+          Excluir
+        </Button>
       </Flex>
     </Card>
   );
