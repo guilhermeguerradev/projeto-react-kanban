@@ -1,5 +1,6 @@
 import type { Task } from "../entities/Task"
 
+
 export const taskServices = {
     async fetchTasks(): Promise<Task[]> {
         const response = await fetch(`${import.meta.env.VITE_API_URL}/tasks`)
